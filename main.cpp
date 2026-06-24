@@ -1,4 +1,5 @@
 ﻿#include "raylib.h"
+#include "Ball.h"
 
 
 #define GAME_TITLE u8"なんか動くやつ"
@@ -14,17 +15,12 @@ int main(void)
 	SetTargetFPS(60);
 
 	//circleの位置を保持する構造体
-	Vector2 circlePos = { 200, 200 };
-	Vector2 circleSpeed = { 5, 5 };
-	
+	Ball ball = CreateBall(Vector2{200, 200}, Vector2{5, 5}, 50, RED);
 
 	while (!WindowShouldClose())
 	{
 		// ゲームの更新処理
-		if(IsKeyDown(KEY_RIGHT)) circlePos.x += circleSpeed.x;    //キーが押されたらX座標にspeedを足す
-		if(IsKeyDown(KEY_LEFT)) circlePos.x -= circleSpeed.x;     //キーが押されたらX座標にspeedを引く
-		if(IsKeyDown(KEY_UP)) circlePos.y -= circleSpeed.y;       //キーが押されたらY座標にspeedを引く
-		if(IsKeyDown(KEY_DOWN)) circlePos.y += circleSpeed.y;     //キーが押されたらY座標にspeedを足す
+		UpdateBall(&ball, screenWidth, screenHeight);
 
 		
 		// ...
@@ -33,7 +29,7 @@ int main(void)
 		ClearBackground(RAYWHITE);
 		DrawText("Hello, Raylib!", 190, 200, 20, LIGHTGRAY);
 		DrawRectangle(300, 300, 100, 100, BLUE);
-		DrawCircleV(circlePos, 100, RED);
+		DrawBall(ball);
 		EndDrawing();
 	}
 
