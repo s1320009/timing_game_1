@@ -1,5 +1,6 @@
 ﻿#include "raylib.h"
 #include "Ball.h"
+#include "Box.h"
 
 
 #define GAME_TITLE u8"なんか動くやつ"
@@ -16,11 +17,13 @@ int main(void)
 
 	//circleの位置を保持する構造体
 	Ball ball = CreateBall(Vector2{200, 200}, Vector2{5, 5}, 50, RED);
+	Box box = CreateBox(300, 300, 100, 100, BLUE);
 
 	while (!WindowShouldClose())
 	{
 		// ゲームの更新処理
 		UpdateBall(&ball, screenWidth, screenHeight);
+		UpdateBox(&box, ball.position, ball.radius);
 
 		
 		// ...
@@ -28,7 +31,7 @@ int main(void)
 		BeginDrawing();
 		ClearBackground(RAYWHITE);
 		DrawText("Hello, Raylib!", 190, 200, 20, LIGHTGRAY);
-		DrawRectangle(300, 300, 100, 100, BLUE);
+		DrawBox(box);
 		DrawBall(ball);
 		EndDrawing();
 	}
