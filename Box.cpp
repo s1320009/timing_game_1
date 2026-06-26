@@ -19,7 +19,7 @@ void UpdateBox(Box* box, Vector2 ballPosition, float radius) {
 			box->isActive = false; // Deactivate the box if collision occurs
 		}
 	}
-}
+} 
 
 void DrawBox(Box box) {
 	if (box.isActive == true) {
