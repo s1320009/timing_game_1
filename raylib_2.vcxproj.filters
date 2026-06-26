@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Ball.cpp">
+      <Filter>クラスファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>クラスファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>クラスファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Ball.h">
+      <Filter>ヘッダファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>ヘッダファイル</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="ヘッダファイル">
+      <UniqueIdentifier>{60d439c3-1c39-4215-ad5e-016eab1340db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="クラスファイル">
+      <UniqueIdentifier>{9810f5f5-36b5-403f-9a53-97ea116e67ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="リソース">
+      <UniqueIdentifier>{8a598e2e-0a42-492d-82db-c3fed4cba2b5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="resources\finish.wav">
+      <Filter>リソース</Filter>
+    </Media>
+  </ItemGroup>
+</Project>

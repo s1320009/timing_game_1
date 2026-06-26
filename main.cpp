@@ -14,12 +14,19 @@ int main(void)
 	const char* gameTitle = (const char*)GAME_TITLE;
 
 	InitWindow(screenWidth, screenHeight, gameTitle);
+	InitAudioDevice(); // PCのサウンド機能をオンにする
 	SetTargetFPS(60);
 
 	//circleの位置を保持する構造体
 	Ball ball = CreateBall(Vector2{200, 200}, Vector2{5, 5}, 50, RED);
 	Box box = CreateBox(300, 300, 100, 100, BLUE);
 	float gameTime = GAME_TIME; // ゲームの制限時間（秒）
+
+	//ロード
+	Sound finishSound = LoadSound("resources/finish.wav");
+
+	// ゲーム終了フラグ
+	bool isGameFinished = false; 
 
 	while (!WindowShouldClose())
 	{
@@ -35,7 +42,12 @@ int main(void)
 			}
 		}
 
-		
+		// 🔔 【音を鳴らす更新
+		if (gameTime <= 0 && !isGameFinished) {
+			PlaySound(finishSound);
+			isGameFinished = true;
+		}
+
 		// ...
 		// 描画処理
 		BeginDrawing();
@@ -46,6 +58,11 @@ int main(void)
 		DrawText(TextFormat("TIME: %.2f", gameTime), 650, 15, 25, GREEN);
 		EndDrawing();
 	}
+
+	// 🔔 【メモリ解放】ループを抜けたら、使った音のメモリを開放する
+	UnloadSound(finishSound);
+
+	CloseAudioDevice(); // サウンド機能をオフにする
 
 	CloseWindow();                    
 
