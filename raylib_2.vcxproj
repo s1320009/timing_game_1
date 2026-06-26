@@ -151,7 +151,9 @@
     <ClInclude Include="Box.h" />
   </ItemGroup>
   <ItemGroup>
+    <Media Include="resources\finalWin.wav" />
     <Media Include="resources\finish.wav" />
+    <Media Include="resources\opening.wav" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\ball.png" />

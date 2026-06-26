@@ -37,6 +37,12 @@
     <Media Include="resources\finish.wav">
       <Filter>リソース</Filter>
     </Media>
+    <Media Include="resources\finalWin.wav">
+      <Filter>リソース</Filter>
+    </Media>
+    <Media Include="resources\opening.wav">
+      <Filter>リソース</Filter>
+    </Media>
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\Mball.png">
