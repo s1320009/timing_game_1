@@ -38,4 +38,12 @@
       <Filter>リソース</Filter>
     </Media>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\Mball.png">
+      <Filter>リソース</Filter>
+    </Image>
+    <Image Include="resources\ball.png">
+      <Filter>リソース</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

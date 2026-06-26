@@ -153,6 +153,10 @@
   <ItemGroup>
     <Media Include="resources\finish.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="resources\ball.png" />
+    <Image Include="resources\Mball.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="packages\raylib.5.5.0\build\native\raylib.targets" Condition="Exists('packages\raylib.5.5.0\build\native\raylib.targets')" />

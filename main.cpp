@@ -24,6 +24,7 @@ int main(void)
 
 	//ロード
 	Sound finishSound = LoadSound("resources/finish.wav");
+	Texture2D ballTexture = LoadTexture("resources/ball.png");
 
 	// ゲーム終了フラグ
 	bool isGameFinished = false; 
@@ -54,12 +55,24 @@ int main(void)
 		ClearBackground(RAYWHITE);
 		DrawText("Hello, Raylib!", 190, 200, 20, LIGHTGRAY);
 		DrawBox(box);
-		DrawBall(ball);
+
+		//画像のどの部分を使うか(全部)
+		Rectangle sourceRect = { 0, 0, (float)ballTexture.width, (float)ballTexture.height };
+		//画像の大きさを指定
+		Rectangle destRect = {
+			ball.position.x - ball.radius,		// 画像の中心をボールの位置に合わせるために半径分引く
+			ball.position.y - ball.radius,		// 画像の中心をボールの位置に合わせるために半径分引く
+			ball.radius * 2,					// 画像の大きさをボールの半径に合わせるために半径の2倍にする
+			ball.radius * 2						// 画像の大きさをボールの半径に合わせるために半径の2倍にする
+		};
+		//引数はそれぞれ: テクスチャ, ソース切り抜き, 位置と大きさ, 回転中心, 回転角度, 色
+		DrawTexturePro(ballTexture, sourceRect, destRect, Vector2{ 0, 0 }, 0, WHITE);
 		DrawText(TextFormat("TIME: %.2f", gameTime), 650, 15, 25, GREEN);
 		EndDrawing();
 	}
 
 	// 🔔 【メモリ解放】ループを抜けたら、使った音のメモリを開放する
+	UnloadTexture(ballTexture);
 	UnloadSound(finishSound);
 
 	CloseAudioDevice(); // サウンド機能をオフにする
